@@ -9,41 +9,58 @@ if (isset($_POST['nhapExcel'])) {
 	$dtExcel = PHPExcel_IOFactory::createReaderForFile($file);
 
 	// load sheet
-	$dtExcel->setLoadSheetsOnly('chatbot');
+	$dtExcel->setLoadSheetsOnly('USD');
 	$fileExel = $dtExcel->load($file);
 	$sheetData = $fileExel->getActiveSheet()->toArray('null', true, true, true);
 
 	echo "<pre>";
 	print_r($sheetData);
 
+	// load sheet
+	// $dtExcel->setLoadSheetsOnly('USER');
+	// $fileExel = $dtExcel->load($file);
+	// $sheetData = $fileExel->getActiveSheet()->toArray('null', true, true, true);
+
+	// echo "<pre>";
+	// print_r($sheetData);
+
 	// lấy sheet cuối cùng
 	$rowHigh = $fileExel->setActiveSheetIndex()->getHighestRow();
-	echo($rowHigh);
+	//echo($rowHigh);
 
-	// for ($i=2; $i <= $sl; $i++) { 
+	for ($i=6; $i <= $rowHigh; $i++) { 
 
-	// 	$A = $sheetData[$i]['A'];
-	// 	$B = $sheetData[$i]['B'];
-	// 	$C = $sheetData[$i]['C'];
+		$A = $sheetData[$i]['A'];
+		$B = $sheetData[$i]['B'];
+		$C = $sheetData[$i]['C'];
+		$D = $sheetData[$i]['D'];
+		$E = $sheetData[$i]['E'];
 
-	// 	echo $A."<br>";
-	// 	echo $B."<br>";
-	// 	echo $C."<br>";
+		// echo $A."<br>";
+		// echo $B."<br>";
+		// echo $C."<br>";
 
-	// 	// $sql = "INSERT INTO chatbot (queries, replies) VALUES ('$B', '$C')";
-	// 	// if ($conn->query($sql) === TRUE) {
-	// 	// 	$tc = "<span style=\"color: green;\">Thêm thành công DL</span>";
-	// 	// } else{
-	// 	// 	$tb = "<span style=\"color: red;\">Thêm thất bại DL</span>";
-	// 	// }
-	// }
+		$sql = "INSERT INTO tbl_usd (Country, USD, Convertusd) VALUES ('$B', '$C', '$D');";
+		if ($conn->query($sql) === TRUE) {
+			$tc = "<span style=\"color: green;\">Thêm thành công DL</span>";
+		} else{
+			$tb = "<span style=\"color: red;\">Thêm thất bại DL</span>";
+		}
 
-	// if (isset($tc)) {
-	// 	echo($tc);
-	// }
-	// if (isset($tb)) {
-	// 	echo($tb);
-	// }
+		// $sql2 = "INSERT INTO user (img, username, password, email) VALUES ('$B', '$C', '$D','$E');";
+		// if ($conn->query($sql2) === TRUE) {
+		// 	$tc = "<span style=\"color: green;\">Thêm thành công DL</span>";
+		// } else{
+		// 	$tb = "<span style=\"color: red;\">Thêm thất bại DL</span>";
+		// }
+	}
+
+	if (isset($tc)) {
+		echo($tc);
+	}
+	if (isset($tb)) {
+		echo($tb);
+	}
 	
 }
 

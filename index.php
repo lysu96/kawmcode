@@ -13,5 +13,15 @@
 	<li><a href=""></a></li>
 	<li><a href=""></a></li>
 	<li><a href=""></a></li>
+
+	<h3><a href="Tudong/">Tự Động</a></h3>
+
+	<h3><a href="chuyenhuongtrang/">Chuyển hướng</a></h3>
+	<li><a href="chuyenhuongtrang/chuyenhuong.php">Chuyển hướng PHP Redirect</a></li>
+	<li><a href="chuyenhuongtrang/chuyenhuong_javascrip.php">Chuyển hướng PHP Redirect</a></li>
+
+	<h3><a href="reCapcha/">reCapchaGoogle</a></h3>
+	<li><a href="chuyenhuongtrang/chuyenhuong.php">Chuyển hướng PHP Redirect</a></li>
+	<li><a href="chuyenhuongtrang/chuyenhuong_javascrip.php">Chuyển hướng PHP Redirect</a></li>
 </body>
 </html>
